@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Simple_Blue" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c175399-d937-4801-9380-a1391e94da7b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<style name="HeaderStyle" mode="Opaque" forecolor="#FFFFFF" backcolor="#0053FA" hTextAlign="Center" vTextAlign="Middle" fontSize="14" isBold="true">
+		<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+		<box>
+			<pen lineColor="#0053FA"/>
+		</box>
+	</style>
+	<style name="DataStyle" mode="Transparent" hTextAlign="Center" vTextAlign="Middle" fontSize="12">
+		<box>
+			<pen lineColor="#0053FA"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<queryString>
+		<![CDATA[select pi.patient_identification as pid,
+pi.first_name as pifn, pi.middle_initial as pimi, pi.last_name as piln, ml.medication_id from patient_medication_log ml 
+              INNER JOIN patient_info pi ON ml.record_ = pi.record_
+              INNER JOIN patient_details dt ON dt.record_ = pi.record_
+              WHERE pi.record_ = 163]]>
+	</queryString>
+	<field name="pid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pifn" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pimi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="piln" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medication_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="12"/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" uuid="b50d0816-5714-4501-a916-75a0e86e5c0a"/>
+				<staticText>
+					<reportElement x="420" y="40" width="145" height="20" uuid="1d996892-5875-4111-a152-bce80ebb69c0"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Medication Report]]></text>
+				</staticText>
+				<image>
+					<reportElement x="30" y="10" width="198" height="66" uuid="e49e1324-cd5a-4884-a60d-42e341fea0c8"/>
+					<imageExpression><![CDATA["https://epilepsyheartland.org/wp-content/uploads/2018/01/EF_North-Central-Illinois-e1518460508561.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="185">
+			<staticText>
+				<reportElement style="HeaderStyle" x="0" y="0" width="100" height="20" uuid="c4dabdab-83cb-4724-adb7-305c601cb6c9"/>
+				<text><![CDATA[Patient ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="0" y="20" width="100" height="20" uuid="b3cba739-2ca8-4f8e-a1eb-9e5b6d8a28bb"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="100" y="0" width="100" height="20" uuid="ef977be4-af1e-461d-a563-e5ffb932b744"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="100" y="20" width="100" height="20" uuid="b3cba739-2ca8-4f8e-a1eb-9e5b6d8a28bb"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="200" y="0" width="100" height="20" uuid="a1b7907f-df50-49a9-8645-42f7a44f14a3"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="200" y="20" width="100" height="20" uuid="e8968b94-03fa-4162-8999-fed3239831f4"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="300" y="0" width="100" height="20" uuid="7d904e8f-08ce-4cf9-bfb3-caa740377443"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="300" y="20" width="100" height="20" uuid="2cb21871-c97a-452d-9623-637d1593efdf"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="0" y="40" width="100" height="20" uuid="fd12420b-733a-4276-a221-fcd46ad7e3ed"/>
+				<text><![CDATA[Patient ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="0" y="60" width="100" height="20" uuid="cbe32f3b-c9bf-4e73-b183-f3270beb7a59"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="100" y="40" width="100" height="20" uuid="f063216f-d250-4b1a-b0f8-2483127e4b9f"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="100" y="60" width="100" height="20" uuid="0b74e857-479f-4cb6-88d3-fad6e2722b2b"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="200" y="40" width="200" height="20" uuid="4399fc00-eee5-4d05-b8f2-88960801c513"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="200" y="60" width="200" height="20" uuid="82b7e4f7-a021-42fd-850c-dbdcdea8e3d3"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="0" y="80" width="100" height="20" uuid="661b94dc-a737-4c12-b654-4c5789f49d85"/>
+				<text><![CDATA[Patient ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="0" y="100" width="100" height="20" uuid="4d1aea19-dced-4eb1-9911-acfadf14ec75"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="100" y="80" width="100" height="20" uuid="c3fa47e9-eb19-4e0c-a694-83bd51736471"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="100" y="100" width="100" height="20" uuid="7d9abdff-cc31-41e3-bebc-89d1218c6181"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="200" y="80" width="100" height="20" uuid="1f441fd2-b191-475f-90d3-641759a6709c"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="200" y="100" width="100" height="20" uuid="6e724484-4f91-4609-86c6-0c27cb2050e3"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="300" y="80" width="100" height="20" uuid="2f388779-4e31-4df9-a933-05f377a5eb05"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="DataStyle" x="300" y="100" width="100" height="20" uuid="15645c34-9c16-4cbc-b4cc-9b2c322c4c34"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#0053FA"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="0" y="165" width="100" height="20" uuid="a9ac3a17-9795-468e-956f-b441e6ec80c3"/>
+				<text><![CDATA[Patient ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="100" y="165" width="80" height="20" uuid="65be0f1f-69d5-4667-86ee-c80e3309d216"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="180" y="165" width="210" height="20" uuid="f84c1ff4-2c4e-461f-8baf-ecfc87fb5879"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="390" y="165" width="165" height="20" uuid="35d0f4b9-84a8-41a6-ad22-338ad45b280a"/>
+				<box>
+					<pen lineColor="#0053FA"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="28" uuid="cad865b3-d3ab-4440-ba4f-3f09976aa6f5"/>
+				<textFieldExpression><![CDATA[$F{medication_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="4466bee4-1f2d-48dd-bbab-ee72871225b8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="472ec26e-2679-4473-a47c-53727194aca1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="0ff8d57a-7cd4-481c-93c0-630d9145648e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

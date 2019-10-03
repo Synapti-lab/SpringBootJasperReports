@@ -38,13 +38,13 @@ public class UserDaoImpl {
  public JasperPrint exportPdfFile() throws SQLException, JRException, IOException {
   Connection conn = jdbcTemplate.getDataSource().getConnection();
 
-  String path = resourceLoader.getResource("classpath:rpt_users.jrxml").getURI().getPath();
+  String path = resourceLoader.getResource("classpath:Simple_Blue.jrxml").getURI().getPath();
 
   JasperReport jasperReport = JasperCompileManager.compileReport(path);
 
   // Parameters for report
   Map<String, Object> parameters = new HashMap<String, Object>();
-
+  parameters.put("record", 370);
   JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
   return print;

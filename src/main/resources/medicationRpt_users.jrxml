@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+                                  http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="rpt_users" language="groovy" pageWidth="595" pageHeight="842"
+              columnWidth="555" leftMargin="20" rightMargin="20" bottomMargin="20"
+              topMargin="20" uuid="809a3f44-f151-4225-8db5-d8f7ef0ad887">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <queryString>
+  <![CDATA[select pi.patient_identification as pid,
+pi.first_name as pifn, pi.middle_initial as pimi, pi.last_name as piln from patient_medication_log ml 
+              INNER JOIN patient_info pi ON ml.record_ = pi.record_
+              INNER JOIN patient_details dt ON dt.record_ = pi.record_
+              WHERE pi.record_ = 18]]>
+    </queryString>
+    <!-- Patient related fields -->
+    <field name="pid" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pifn" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pimi" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="piln" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+<!--    <field name="pi.birthdate" class="java.util.Date">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pi.gender" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pi.patient_program" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pi.diagnosis_code_1" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pi.diagnosis_code_2" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="pi.pharmacy" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+    <field name="dt.patient_program" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>    
+     Medication related fields 
+    <field name="ml.record_" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.medication_id" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.medication" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.dosage" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.medication_start_date" class="java.util.Date">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.instructions" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.current_medication" class="java.lang.Boolean">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.medication_end_date" class="java.util.Date">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="ml.medication_review_date" class="java.util.Date">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>-->
+    <background>
+    </background>
+    <title>
+        <band height="150" splitType="Stretch">            
+            <image scaleImage="Clip" onErrorType="Icon" isLazy="true">
+                <reportElement x="0" y="0" width="290" height="132"/>
+                <imageExpression class="java.lang.String">
+                <![CDATA["https://epilepsyheartland.org/wp-content/uploads/2018/01/EF_North-Central-Illinois-e1518460508561.png"]]>
+                </imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="34"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Medication Report]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"  >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Patient ID]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[First Name]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Middle]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Last Name]]></text>
+            </staticText>
+        </band>            
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pifn}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pimi}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{piln}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+<!--    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[DOB]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Gender]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Allergies]]></text>
+            </staticText>
+        </band>            
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.patient_identification}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.first_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.middle_initial}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.last_name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Patient Status]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[DX.Code 1]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[DX.Code 2]]></text>
+            </staticText>                
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Pharmacy]]></text>
+            </staticText>
+        </band>            
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.patient_program}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.diagnosis_code_1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.diagnosis_code_2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pi.pharmacy}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnHeader>
+         Medication Table
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[#Medication]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="120" y="0" width="275" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Dose]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="395" y="0" width="160" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Start Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="395" y="0" width="160" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Instructions]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="395" y="0" width="160" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[End Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="395" y="0" width="160" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"   >
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Current]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="120" height="20"/>
+                <box>
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.medication}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="RelativeToBandHeight" x="120" y="0" width="275" height="20" uuid="9978c830-cf98-456a-b030-d96c07de7854"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.medication_id}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="160" height="20" uuid="35a6355d-8307-4414-bf43-8a7788ec81c3"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.start_date}]]></textFieldExpression>
+            </textField>            
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="160" height="20" uuid="35a6355d-8307-4414-bf43-8a7788ec81c3"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.instructions}]]></textFieldExpression>
+            </textField>            
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="160" height="20" uuid="35a6355d-8307-4414-bf43-8a7788ec81c3"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                </box>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.end_date}]]></textFieldExpression>
+            </textField>            
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="160" height="20" uuid="35a6355d-8307-4414-bf43-8a7788ec81c3"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.5"/>
+                    <topPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{ml.current_medication}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>-->
+    
+</jasperReport>
